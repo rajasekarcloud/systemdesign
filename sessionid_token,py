@@ -81,6 +81,9 @@ def login():
     resp.set_cookie("session_token", session_token, httponly=True, samesite="Lax")
     return resp
 
+@app.route("/view/<sessionid>")
+def view_session(sessionid):
+    return SESSIONS[sessionid]
 
 @app.route("/welcome/<username>")
 def welcome(username):
